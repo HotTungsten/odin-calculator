@@ -1,0 +1,33 @@
+/*
+#FBFBFF - white
+#B80C09 - red
+#0B4F6C - dark blue
+#01BAEF - light blue
+#040F16 - rich black
+*/
+* {
+    background-color: #FBFBFF;
+}
+
+#calculator {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+#calculatorbody {
+    background-color: #040F16;
+    height: 500px;
+    width: 500px;
+}
+
+#display {
+    background-color: gray;
+    height: 100px;
+    width: 300px;
+}
+
+button {
+    height: 50px;
+    width: 50px;
+}
