@@ -37,6 +37,12 @@ operator.forEach(operator => operator.addEventListener('click', function(){
         operation = operator.innerHTML;
         operationBool = true;
     }
+    if(numOne !== null && numTwo !== null){
+        numOne = operate(operation, Number(numOne), Number(numTwo));
+        display.textContent = numOne;
+        operation = operator.innerHTML;
+        numTwo = null;
+    }
     console.log(operation);
 }));
 
@@ -45,7 +51,18 @@ equals.forEach(equals => equals.addEventListener('click', function(){
     if(operationBool === true && numOne !== "0" && numTwo !== "0"){
         result = operate(operation, Number(numOne), Number(numTwo));
         display.textContent = result;
+        operationBool = false;
     }
+}));
+
+const clear = document.querySelectorAll('#clear');
+clear.forEach(clear => clear.addEventListener('click', function(){
+    operation = null;
+    operationBool = false;
+    numOne = null;
+    numTwo = null;
+    result = null;
+    display.textContent = "0";
 }));
 
 function operate(operator, num1, num2){
@@ -57,6 +74,11 @@ function operate(operator, num1, num2){
         case "*":
             return num1 * num2;
         case "/":
-            return num1 / num2;
+            if(num2 == 0){
+                display.textContent = "Error";
+            }
+            else{
+                return Math.round((num1 / num2) * 1000) / 1000;
+            }
     }
 }
